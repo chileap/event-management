@@ -17,12 +17,12 @@ class ApplicationController < ActionController::Base
 
   # Set layout for devise controllers
   def set_layout
-    if current_controller?(%w(devise/registrations)) && action_name == 'edit'
-      'application'
-    elsif current_controller?(%w(devise/sessions devise/registrations devise/passwords))
-      'devise'
+    if current_controller?(%w[devise/registrations]) && action_name == "edit"
+      "application"
+    elsif current_controller?(%w[devise/sessions devise/registrations devise/passwords])
+      "devise"
     else
-      'application'
+      "application"
     end
   end
 end
