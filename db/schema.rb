@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_073151) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_104947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "location"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.boolean "all_day", default: true
+    t.string "color"
+    t.string "status", default: "confirmed"
+    t.text "recurrence"
+    t.string "repeat", default: "never"
+    t.datetime "repeat_until_date"
+    t.jsonb "repeat_except_dates", default: []
+    t.integer "repeat_count"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -49,4 +69,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_073151) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
 end

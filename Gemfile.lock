@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/excid3/annotate_models.git
+  revision: 34ab955c72c414b83e0b4aacae419003a52a151d
+  branch: rails7
+  specs:
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.1)
+      rake (>= 10.4, < 14.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -321,6 +330,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotate!
   bootsnap
   capybara
   cssbundling-rails

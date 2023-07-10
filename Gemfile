@@ -60,6 +60,8 @@ group :development, :test do
   gem "faker"
   gem "database_cleaner"
   gem "standard"
+
+  gem "annotate", github: "excid3/annotate_models", branch: "rails7"
 end
 
 group :development do
