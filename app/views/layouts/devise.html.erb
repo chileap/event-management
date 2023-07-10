@@ -20,10 +20,20 @@
 
   </head>
 
-  <body class="flex flex-col h-full font-sans antialiased font-normal leading-normal bg-white">
-    <main class="w-full h-full">
-      <%= render partial: "shared/flash" %>
-      <%= yield %>
-    </main>
+  <body class="flex flex-col h-full font-sans antialiased font-normal leading-normal bg-gray-50 dark:bg-gray-900 p-6">
+    <section class="flex flex-row w-full h-full">
+      <div class="flex items-center w-full">
+        <img class="j2x7_17hqRVmwte_tWFa RV8RoaI_SlEMC5CEQ3ms s39ClfdnICIuO9QZ5YG_" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg" alt="illustration">
+      </div>
+      <main class="w-full bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="p-6 sm:p-8">
+          <a href="/" class="flex mb-6 navbar-brand">
+            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">Event Management</span>
+          </a>
+          <%= render partial: "shared/flash" %>
+          <%= yield %>
+        </div>
+      </main>
+    </section>
   </body>
 </html>

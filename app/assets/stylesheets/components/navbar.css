@@ -1,0 +1,3 @@
+.navbar-brand {
+  @apply text-2xl text-primary font-bold;
+}

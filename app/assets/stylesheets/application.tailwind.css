@@ -4,3 +4,8 @@
 
 @import "components/alert";
 @import "components/form";
+@import "components/navbar";
+
+html, body {
+  height: 100%;
+}
