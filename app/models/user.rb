@@ -38,6 +38,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable, :trackable
 
   has_many :events, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   has_one_attached :avatar
 
   friendly_id :full_name, use: :slugged
