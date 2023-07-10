@@ -73,12 +73,18 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
+  gem "shoulda-matchers", "~> 5.3"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "webmock"
+  gem "vcr"
+end
+
 gem "devise", "~> 4.9"
-
 gem "enumerize", "~> 2.7"
-
 gem "friendly_id", "~> 5.5"
-
 gem "simple_form", "~> 5.2"
-
 gem "simple_form-tailwind", "~> 0.1.1"
