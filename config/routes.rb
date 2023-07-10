@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   authenticated :user do
     get "/dashboard", to: "dashboard#index", as: :authenticated_root
+
+    resources :calendars
+    resources :events
+    resources :tasks
   end
 
   # Defines the root path route ("/")
