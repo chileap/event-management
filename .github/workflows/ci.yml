@@ -47,7 +47,6 @@ jobs:
           DATABASE_URL: postgres://postgres:password@localhost:5432/test
           RAILS_ENV: test
           PG_USER: postgres
-          RAILS_MASTER_KEY: 0233c03a190750a3d985ddc715d6ff26
         run: |
           bin/rails db:test:prepare
           bin/rails spec
