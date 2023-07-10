@@ -1,0 +1,27 @@
+.full-error-message {
+  @apply text-red-500 text-xs italic;
+}
+
+.hint-message {
+  @apply text-gray-700 text-xs italic;
+}
+
+.input-valid {
+  @apply text-green-400 border-green-500;
+}
+
+.input-error {
+  @apply text-red-500 border-red-500;
+}
+
+.error-message {
+  @apply text-red-500;
+}
+
+.text-error {
+  @apply text-red-500;
+}
+
+.text-success {
+  @apply text-green-500;
+}

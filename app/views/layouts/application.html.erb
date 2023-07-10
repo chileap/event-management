@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if content_for?(:title) %>
+        <%= yield :title %> |
+      <% end %>
+      Calendar Event Management
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  </head>
+
+  <body data-controller="<%= controller.controller_name %>--<%= controller.action_name %>" class="h-full font-sans antialiased overflow-hidden font-normal leading-normal bg-white">
+    <div class="flex min-h-full relative"
+      data-controller="slideover"
+      data-slideover-open-value="false"
+      data-slideover-invisible-class="-translate-x-full,opacity-0"
+      data-slideover-visible-class="translate-x-0,opacity-100"
+      data-slideover-entering-class=""
+      data-slideover-enter-timeout="300,300"
+      data-slideover-leaving-class=""
+      data-slideover-leave-timeout="300,0"
+      data-slideover-active-target="#slideover-target"
+    >
+      <%= render partial: "shared/sidebar" %>
+
+      <!-- Content area -->
+      <div class="flex flex-1 flex-col overflow-hidden">
+        <%= render partial: "shared/main_navbar" %>
+
+        <%= render partial: "shared/flash" %>
+
+        <!-- Main content -->
+        <div class="h-full md:flex md:flex-1 sm:block md:items-stretch overflow-y-auto">
+          <%= yield :content_sidebar %>
+
+          <main class="w-full h-full flex-1">
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <ninja-keys data-controller="command-palette" hideBreadcrumbs></ninja-keys>
+  </body>
+</html>

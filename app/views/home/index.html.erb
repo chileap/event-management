@@ -1,0 +1,36 @@
+<!-- Hero section -->
+<div class="relative isolate h-full">
+  <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+    <defs>
+      <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+        <path d="M100 200V.5M.5 .5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
+      <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
+  </svg>
+  <div class="mx-auto max-w-7xl p-6 h-full lg:flex lg:items-center">
+    <div class="mx-auto max-w-4xl lg:flex-auto text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+        Welcome to Event Management
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        A simple calendar event management application built with Ruby on Rails, StimulusJS, Hotwire and Tailwind CSS.
+        We also used gem Administrate to provide a simple admin dashboard.
+      </p>
+      <div class="mt-10 flex justify-end items-center gap-x-6">
+        <% if current_user.present? %>
+          <%= link_to user_root_path, class: 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' do %>
+            Get started
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' do %>
+            Get started
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="flex flex-row items-center justify-between px-4 py-3 bg-white border-b border-gray-200 text-sm font-medium" data-controller="toggle">
+  <div class="flex md:hidden pr-4">
+    <button data-action="slideover#_show" type="button" class="border-r border-gray-200 text-gray-500 focus:outline-none lg:hidden">
+      <span class="sr-only">Open sidebar</span>
+      <!-- Heroicon name: outline/bars-3-bottom-left -->
+      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+      </svg>
+    </button>
+  </div>
+
+  <%= yield :page_title %>
+
+  <div class="w-auto pb-0 ml-4 flex justify-end items-center" data-toggle-target="toggleable">
+
+    <% if user_signed_in? %>
+      <!-- Main menu -->
+      <div class="inline-flex z-20 items-center leading-none text-gray-700 no-underline align-middle rounded hover:text-gray-800 hover:bg-white">
+        <div class="relative" data-controller="dropdown">
+          <div data-action="click->dropdown#toggle click@window->dropdown#hide touch->dropdown#toggle touch@window->dropdown#hide" role="button" class="inline-block select-none" aria-label="Profile Menu">
+            <span class="flex items-center text-gray-700 appearance-none">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+            </span>
+          </div>
+          <div data-dropdown-target="menu" class="z-20 hidden mt-2 absolute right-0 dropdown-menu">
+            <div class="overflow-hidden bg-white border border-gray-200 rounded shadow-md">
+              <%= link_to t("shared.navbar.profile"), edit_user_registration_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
+              <%= link_to t("shared.navbar.password"), account_password_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
+              <%= button_to t("shared.navbar.sign_out"), destroy_user_session_path, method: :delete, class: 'w-full text-left font-medium cursor-pointer px-6 py-3 border-t border-gray-200 text-gray-800 bg-white hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= link_to t("shared.navbar.log_in"), new_user_session_path, class: 'nav-link' %>
+      <%= link_to t("shared.navbar.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</nav>

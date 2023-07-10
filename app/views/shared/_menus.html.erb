@@ -1,0 +1,13 @@
+<ul role="list" class="flex flex-1 flex-col gap-y-7 list-none h-full">
+  <li>
+    <ul role="list" class="-mx-2 space-y-1 list-none">
+      <li>
+        <a href="<%= root_path %>" class="<%= current_controller?("dashboards") ? "bg-gray-50 text-indigo-600" : "text-gray-700" %> text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" aria-current="page">
+          <%= render_svg "icons/home", styles: "icon-sm #{current_controller?("dashboards") ? "text-indigo-600" : "text-gray-400"} group-hover:text-indigo-600 mr-4 flex-shrink-0 w-6 h-6" %>
+          Dashboard
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
