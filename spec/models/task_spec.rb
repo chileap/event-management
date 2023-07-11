@@ -26,20 +26,20 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Task, type: :model do
-  describe 'validations' do
+  describe "validations" do
     it { should validate_presence_of(:name) }
 
-    describe 'end_at_after_start_at' do
+    describe "end_at_after_start_at" do
       let(:task) { build(:task) }
 
-      it 'should be valid' do
+      it "should be valid" do
         expect(task).to be_valid
       end
 
-      it 'should be invalid' do
+      it "should be invalid" do
         task.end_at = task.due_at - 1.day
         expect(task).to be_invalid
       end
